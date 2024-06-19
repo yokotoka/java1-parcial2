@@ -1,0 +1,33 @@
+@startuml
+start
+
+:Solicitar al usuario la distancia al destino;
+:Leer la distancia del usuario;
+:Establecer paso a 100;
+:Establecer dirección a "adelante";
+:Establecer actual a 0;
+:Crear List<String[]> resultado;
+while (actual >= 0) is (true)
+    :Incrementar actual en paso;
+    if (actual > distancia) then (true)
+        :Calcular actual como distancia - (actual - distancia);
+        :Invertir dirección del paso;
+        :Establecer dirección a "atrás";
+    endif
+    if (actual < 0) then (true)
+        break
+    endif
+    :Solicitar al usuario el nombre de la parada en el km actual y dirección;
+    :Leer nombre de la parada;
+    :Agregar (nombreParada, actual, dirección) a resultado;
+endwhile (false)
+
+if (resultado está vacío) then (true)
+    :Imprimir "No se requiere reabastecimiento";
+else (false)
+    :Iterar sobre resultado;
+    :Imprimir información de reabastecimiento;
+endif
+
+stop
+@enduml

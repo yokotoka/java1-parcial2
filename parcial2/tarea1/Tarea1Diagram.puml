@@ -1,0 +1,36 @@
+@startuml
+start
+:Declarar constantes;
+:Declarar arrays;
+:Inicializar variables;
+repeat
+  :Obtener nombre del estudiante;
+  :Generar nota aleatoria;
+  :Agregar nota al total;
+  if (nota >= 4) then (sí)
+    :Incrementar contador de aprobadas;
+  else
+    if (nota >= 7) then (sí)
+      :Incrementar contador de promocionadas;
+    else
+      if (nota < 4) then (sí)
+        :Incrementar contador de desaprobadas;
+      endif
+    endif
+  endif
+  if (nota > nota máxima) then (sí)
+    :Actualizar nota máxima;
+    :Actualizar nombre del estudiante con la nota máxima;
+  else
+    if (nota == nota máxima) then (sí)
+      :Agregar nombre del estudiante al nombre del estudiante con la nota máxima;
+    endif
+  endif
+repeat while (menos de 10 estudiantes)
+:Imprimir contador de aprobadas;
+:Imprimir contador de promocionadas;
+:Imprimir contador de desaprobadas;
+:Imprimir nota máxima y nombre del estudiante;
+:Imprimir promedio de notas;
+stop
+@enduml
